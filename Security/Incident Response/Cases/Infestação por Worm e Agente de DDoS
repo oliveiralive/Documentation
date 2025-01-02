@@ -1,0 +1,56 @@
+**Cenário 2: Infestação por Worm e Agente de DDoS**  
+Em uma manhã de terça-feira, um novo worm é lançado; ele se espalha por mídias removíveis e pode se copiar para compartilhamentos do Windows abertos. Quando o worm infecta um host, ele instala um agente de DDoS. A organização já sofreu infecções generalizadas antes que as assinaturas de antivírus se tornassem disponíveis, várias horas após o início da disseminação do worm.  
+
+A seguir estão perguntas adicionais para este cenário:  
+
+**1. Como a equipe de resposta a incidentes identificaria todos os hosts infectados?**  
+A equipe de resposta pode utilizar as seguintes abordagens para identificar hosts infectados:  
+- **Varredura de rede**: Usar ferramentas de detecção de vulnerabilidades (Nmap, Nessus, etc.) para procurar compartilhamentos abertos e tráfego anômalo.  
+- **Análise de logs**: Verificar logs de firewalls, IDS/IPS e servidores em busca de conexões incomuns ou transferências de arquivos suspeitas.  
+- **Monitoramento de tráfego**: Capturar e analisar pacotes de rede para identificar padrões de propagação do worm.  
+- **Indicadores de Comprometimento (IoCs)**: Criar ou utilizar IoCs fornecidos por outros incidentes similares para realizar uma busca nos hosts.  
+- **Resposta centralizada**: Utilizar EDR (Endpoint Detection and Response) para identificar comportamentos suspeitos em toda a organização.  
+
+**2. Como a organização tentaria impedir que o worm entrasse na rede antes que as assinaturas de antivírus fossem lançadas?**  
+- **Bloqueio de mídias removíveis**: Desabilitar portas USB e restringir o uso de dispositivos externos.  
+- **Restrição de compartilhamentos abertos**: Reconfigurar permissões de compartilhamento no Windows, limitando acessos.  
+- **Segmentação de rede**: Isolar partes da rede para reduzir a propagação.  
+- **Regras de firewall**: Bloquear tráfego associado ao worm, especialmente de compartilhamentos SMB.  
+- **Treinamento emergencial**: Alertar usuários sobre o risco de conectar dispositivos desconhecidos à rede.  
+
+**3. Como a organização tentaria impedir que o worm fosse disseminado por hosts infectados antes do lançamento das assinaturas de antivírus?**  
+- **Isolamento de hosts infectados**: Desconectar ou colocar em quarentena máquinas suspeitas.  
+- **Políticas de ACL (Access Control List)**: Restringir comunicações entre hosts internos que não sejam necessárias para operações.  
+- **Desabilitação de compartilhamentos**: Desativar compartilhamentos de arquivos temporariamente até que o incidente seja contido.  
+- **Monitoramento em tempo real**: Implementar sistemas de detecção de comportamento anômalo para bloquear automaticamente atividades suspeitas.  
+
+**4. A organização tentaria aplicar patches em todas as máquinas vulneráveis? Se sim, como isso seria feito?**  
+Sim, aplicar patches é fundamental. A execução seria:  
+- **Identificação de vulnerabilidades**: Identificar quais sistemas possuem compartilhamentos ou serviços não corrigidos.  
+- **Aplicação automatizada de patches**: Utilizar soluções de gerenciamento de patches (WSUS, SCCM) para distribuir atualizações rapidamente.  
+- **Patch prioritário**: Priorizar sistemas críticos ou mais expostos a riscos.  
+- **Validação de patches**: Testar patches em um ambiente de homologação antes de implantar em larga escala.  
+
+**5. Como o tratamento do incidente mudaria se os hosts infectados que receberam o agente de DDoS fossem configurados para atacar o site de outra organização na manhã seguinte?**  
+- **Notificação imediata**: Informar a outra organização e o CERT local sobre o ataque iminente.  
+- **Desconexão forçada**: Isolar ou desativar os hosts infectados para prevenir o ataque.  
+- **Coleta de evidências**: Realizar análise forense para identificar a origem e a finalidade do ataque.  
+- **Análise legal**: Consultar o departamento jurídico para avaliar a responsabilidade da organização no ataque involuntário.  
+
+**6. Como o tratamento do incidente mudaria se um ou mais hosts infectados contivessem informações pessoais sensíveis sobre os funcionários da organização?**  
+- **Isolamento e auditoria rigorosa**: Desconectar e analisar minuciosamente os hosts com dados sensíveis.  
+- **Notificação de violação de dados**: Cumprir os requisitos legais de notificação de incidentes de violação de dados pessoais (LGPD).  
+- **Monitoramento de dados**: Verificar se houve exfiltração de informações sensíveis.  
+- **Criptografia de dados**: Garantir que dados sensíveis estejam criptografados para mitigar riscos futuros.  
+
+**7. Como a equipe de resposta a incidentes manteria os usuários informados sobre o status do incidente?**  
+- **Comunicados regulares**: Enviar atualizações periódicas por e-mail ou portal interno.  
+- **Canal de comunicação dedicado**: Criar um canal de suporte específico para dúvidas relacionadas ao incidente.  
+- **Transparência**: Informar o progresso, reforçar medidas de segurança e indicar prazos estimados para a resolução.  
+- **Políticas de conduta**: Orientar usuários a não conectar dispositivos externos e relatar comportamentos anômalos.  
+
+**8. Quais medidas adicionais a equipe realizaria para hosts que não estão conectados à rede (ex.: funcionários de férias, empregados remotos)?**  
+- **Notificação proativa**: Informar os funcionários sobre o incidente e solicitar que evitem conectar dispositivos até novas instruções.  
+- **Atualização forçada**: Exigir que hosts remotos se conectem via VPN para receber patches e varreduras antes de retornar à rede.  
+- **Verificação manual**: Ao retornar, exigir a verificação dos dispositivos em quarentena antes de permitir a reconexão à rede interna.  
+- **Políticas de acesso**: Implementar regras que bloqueiam acessos de hosts não atualizados ou não monitorados.
