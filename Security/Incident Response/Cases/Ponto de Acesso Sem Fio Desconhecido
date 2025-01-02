@@ -1,0 +1,56 @@
+**Cenário 11: Ponto de Acesso Sem Fio Desconhecido**
+
+Na manhã de segunda-feira, a central de atendimento da organização recebe ligações de três usuários no mesmo andar de um prédio, relatando problemas com o acesso sem fio. Um administrador de rede, solicitado a ajudar na resolução do problema, leva um laptop com acesso sem fio para o andar dos usuários. Ao visualizar a configuração de rede sem fio, ele nota que há um novo ponto de acesso listado como disponível. Ele verifica com seus colegas e determina que esse ponto de acesso não foi implantado por sua equipe, indicando que é provavelmente um ponto de acesso não autorizado estabelecido sem permissão.
+
+**1. Qual deve ser o primeiro passo principal no tratamento deste incidente (por exemplo, localizar fisicamente o ponto de acesso não autorizado, conectar-se logicamente ao ponto de acesso)?**
+
+O primeiro passo deve ser localizar fisicamente o ponto de acesso não autorizado. Isso pode ser feito utilizando ferramentas de análise de Wi-Fi para identificar a intensidade do sinal e a direção de origem do ponto de acesso. Uma vez localizado, o ponto de acesso pode ser desativado ou removido para evitar riscos à segurança da rede.
+
+**2. Qual é a maneira mais rápida de localizar o ponto de acesso? Qual é a maneira mais discreta de localizar o ponto de acesso?**
+
+- **Maneira mais rápida:**
+  - Utilizar um analisador de Wi-Fi em um dispositivo móvel para identificar o ponto de acesso não autorizado. Ao caminhar pelo ambiente, a intensidade do sinal indicará a proximidade do ponto de acesso. Aplicativos como o WiFi Analyzer podem ser úteis nesse processo. 
+
+- **Maneira mais discreta:**
+  - Utilizar um analisador de Wi-Fi portátil e direcional para identificar a direção do sinal sem revelar a localização exata. Isso permite localizar o ponto de acesso sem alertar possíveis responsáveis. 
+
+**3. Como o tratamento deste incidente seria diferente se o ponto de acesso tivesse sido implantado por uma parte externa (por exemplo, um contratado) trabalhando temporariamente no escritório da organização?**
+
+Se o ponto de acesso tivesse sido implantado por uma parte externa, o tratamento incluiria:
+
+- **Verificação de Autorização:**
+  - Confirmar se a instalação do ponto de acesso foi autorizada pela organização.
+
+- **Documentação:**
+  - Revisar a documentação de segurança para garantir que a instalação de dispositivos externos esteja em conformidade com as políticas da organização.
+
+- **Comunicação:**
+  - Notificar a parte externa sobre a violação de políticas e discutir medidas corretivas.
+
+**4. Como o tratamento deste incidente seria diferente se um analista de detecção de intrusões relatasse sinais de atividade suspeita envolvendo algumas das estações de trabalho no mesmo andar do prédio?**
+
+Se sinais de atividade suspeita forem detectados, o tratamento incluiria:
+
+- **Análise Forense:**
+  - Investigar as estações de trabalho afetadas para identificar possíveis compromissos ou atividades maliciosas.
+
+- **Isolamento:**
+  - Isolar as estações de trabalho comprometidas para evitar a propagação de ameaças.
+
+- **Monitoramento:**
+  - Implementar monitoramento adicional para detectar atividades anômalas.
+
+**5. Como o tratamento deste incidente seria diferente se o ponto de acesso tivesse sido removido enquanto a equipe ainda estava tentando localizá-lo fisicamente?**
+
+Se o ponto de acesso fosse removido antes de ser localizado, o tratamento incluiria:
+
+- **Análise de Logs:**
+  - Revisar logs de rede para identificar atividades associadas ao ponto de acesso não autorizado.
+
+- **Entrevistas:**
+  - Conduzir entrevistas com funcionários para determinar quem pode ter instalado o ponto de acesso.
+
+- **Prevenção:**
+  - Implementar medidas para prevenir a instalação não autorizada de dispositivos no futuro.
+
+Em todos os casos, é essencial documentar cada etapa do processo de resposta a incidentes para garantir a conformidade com as políticas da organização e facilitar análises futuras. 
