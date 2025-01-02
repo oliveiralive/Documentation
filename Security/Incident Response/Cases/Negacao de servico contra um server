@@ -1,0 +1,29 @@
+**Cenário 1: Ataque de Negação de Serviço ao Servidor DNS**  
+Em uma tarde de sábado, usuários externos começam a ter problemas para acessar os sites públicos da organização. Ao longo da próxima hora, o problema piora a ponto de quase todas as tentativas de acesso falharem. 
+Enquanto isso, um membro da equipe de redes da organização responde a alertas de um roteador de borda da Internet e determina que a largura de banda da organização está sendo consumida por um volume incomumente grande de pacotes UDP 
+para os servidores DNS públicos da organização.  
+
+A análise do tráfego no Netflow mostra que os servidores DNS estão recebendo volumes elevados de solicitações de um único endereço IP externo. Além disso, todas as solicitações DNS desse endereço vêm da mesma porta de origem.  
+
+A seguir estão perguntas adicionais para este cenário:  
+
+**1. Com quem a organização deve entrar em contato sobre o endereço IP externo em questão?**  
+A organização deve entrar em contato com o provedor de serviços de internet (ISP) responsável pelo endereço IP externo identificado. O ISP pode investigar e, se necessário, bloquear ou notificar o responsável pela origem do tráfego malicioso. 
+Além disso, o CERTBR pode ser informado para auxiliar na mitigação do ataque, especialmente se houver indícios de uma campanha mais ampla.  
+
+**2. Suponha que, após a adoção das medidas iniciais de contenção, os administradores de rede detectem que nove hosts internos também estão tentando fazer as mesmas solicitações incomuns ao servidor DNS. Como isso afetaria o tratamento desse incidente?**  
+A presença de hosts internos envolvidos indica uma possível infecção por malware ou comprometimento interno. Isso muda o incidente de um ataque puramente externo para um ataque interno, sugerindo um possível caso de botnet ou comprometimento lateral. O foco da resposta ao incidente deve se expandir para incluir:  
+- **Isolamento** imediato dos hosts internos afetados.  
+- **Análise forense** para determinar o vetor de comprometimento e a extensão do ataque.  
+- **Erradicação e recuperação**: Remoção do malware, aplicação de patches e revalidação dos sistemas.  
+- **Monitoramento contínuo** para evitar reinfecções e garantir que não haja hosts adicionais comprometidos.  
+- **Educação e conscientização** para os usuários, reforçando práticas de segurança.  
+
+**3. Suponha que dois dos nove hosts internos se desconectaram da rede antes que seus proprietários fossem identificados. Como os proprietários dos sistemas seriam identificados?**  
+Para identificar os proprietários dos sistemas desconectados, a equipe de resposta ao incidente pode adotar as seguintes medidas:  
+- **Logs de DHCP** e **reservas de IP**: Verificar os registros de atribuição de IP no servidor DHCP para identificar quais dispositivos usaram determinados IPs recentemente.  
+- **Logs de autenticação**: Analisar registros de autenticação (AD, logs de VPN ou NAC) para rastrear quais usuários estavam conectados aos hosts comprometidos.  
+- **Inventário de ativos**: Verificar a base de dados de inventário de TI para identificar os dispositivos pelo MAC address ou hostname.  
+- **Consultas ao histórico de conexões**: Utilizar logs de switch e firewall para rastrear o tráfego dos hosts e identificar a porta de rede associada. A partir disso, consultar o responsável pelo ativo conectado a essa porta.  
+
+Se mesmo assim a identificação não for possível, uma comunicação ampla interna pode ser feita para solicitar que os responsáveis pelos dispositivos desconectados entrem em contato com a equipe de TI.
