@@ -1,0 +1,37 @@
+Na noite de quarta-feira, a equipe de segurança física da organização recebeu uma ligação de uma administradora de folha de pagamento que viu uma pessoa desconhecida sair de seu escritório, correr pelo corredor e sair do prédio. A administradora havia deixado sua estação de trabalho desbloqueada e sem supervisão por apenas alguns minutos. O programa de folha de pagamento ainda estava logado e no menu principal, como estava quando ela o deixou, mas a administradora percebeu que o mouse parecia ter sido movido. A equipe de resposta a incidentes foi chamada para coletar evidências relacionadas ao incidente e determinar quais ações foram realizadas.
+
+A seguir estão perguntas adicionais para este cenário:
+
+**1. Como a equipe determinaria quais ações foram realizadas?**
+- **Análise de logs do sistema**: Revisar os logs de acesso e atividades do sistema para identificar quaisquer operações realizadas durante o período em que a estação de trabalho ficou sem supervisão.
+- **Verificação de logs do aplicativo de folha de pagamento**: Examinar os registros do software de folha de pagamento para detectar acessos ou modificações nos dados durante o intervalo em questão.
+- **Análise de câmeras de segurança**: Revisar as gravações das câmeras próximas ao escritório para identificar o indivíduo e suas ações.
+- **Entrevistas**: Conversar com a administradora e possíveis testemunhas para obter detalhes adicionais sobre o incidente.
+
+**2. Como o tratamento deste incidente diferiria se a administradora de folha de pagamento tivesse reconhecido a pessoa que saiu de seu escritório como um ex-funcionário do departamento de folha de pagamento?**
+- **Revogação de acessos**: Verificar se as credenciais do ex-funcionário foram devidamente desativadas após seu desligamento.
+- **Investigação de motivos**: Considerar possíveis intenções maliciosas ou acesso indevido a informações confidenciais.
+- **Ações legais**: Avaliar a necessidade de medidas legais contra o ex-funcionário por invasão e possível roubo de dados.
+
+**3. Como o tratamento deste incidente diferiria se a equipe tivesse motivos para acreditar que a pessoa era um funcionário atual?**
+- **Suspensão preventiva**: Considerar a suspensão do funcionário até a conclusão da investigação.
+- **Análise de acesso**: Verificar se o funcionário tinha permissões para acessar os dados da folha de pagamento e se houve abuso de privilégio.
+- **Procedimentos disciplinares**: Aplicar medidas conforme as políticas internas da organização.
+
+**4. Como o tratamento deste incidente diferiria se a equipe de segurança física determinasse que a pessoa usou técnicas de engenharia social para obter acesso físico ao prédio?**
+- **Revisão de políticas de segurança**: Avaliar e reforçar as medidas de controle de acesso físico para prevenir futuras intrusões.
+- **Treinamento de funcionários**: Implementar programas de conscientização sobre engenharia social e segurança.
+- **Análise de vulnerabilidades**: Identificar e corrigir falhas nos procedimentos de segurança que permitiram o acesso não autorizado.
+
+**5. Como o tratamento deste incidente diferiria se os logs da semana anterior mostrassem um número incomum de tentativas falhas de login remoto usando o ID de usuário da administradora de folha de pagamento?**
+- **Investigação de possível comprometimento de credenciais**: Analisar se as tentativas indicam que as credenciais da administradora foram alvo de ataques.
+- **Alteração de senhas**: Solicitar a mudança imediata das senhas da administradora e monitorar atividades suspeitas.
+- **Reforço de segurança**: Implementar autenticação multifator e outras medidas para proteger o acesso remoto.
+
+**6. Como o tratamento deste incidente diferiria se a equipe de resposta a incidentes descobrisse que o invasor instalou um keylogger na estação de trabalho da administradora?**
+- **Isolamento do sistema**: Desconectar a estação de trabalho da rede para evitar a exfiltração de dados.
+- **Análise forense**: Realizar uma investigação detalhada para identificar o malware e avaliar o impacto.
+- **Notificação de violação**: Informar as partes afetadas sobre a possível exposição de dados pessoais, conforme as diretrizes da LGPD.
+- **Revisão de segurança**: Fortalecer as medidas de segurança cibernética para prevenir futuras infecções por malware.
+
+A abordagem detalhada e adaptativa a cada uma dessas situações é essencial para mitigar riscos, proteger dados sensíveis e manter a integridade dos sistemas da organização. 
