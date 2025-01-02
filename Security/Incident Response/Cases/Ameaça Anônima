@@ -1,0 +1,28 @@
+Cenário 9: Ameaça Anônima**
+
+Em uma quinta-feira à tarde, a equipe de segurança física da organização recebe uma ligação de um gerente de TI, informando que dois de seus funcionários receberam ameaças anônimas contra os sistemas da organização. Após investigação, 
+a equipe de segurança física acredita que as ameaças devem ser levadas a sério e notifica as equipes internas apropriadas, incluindo a equipe de resposta a incidentes, sobre as ameaças.
+
+**1. O que a equipe de resposta a incidentes deve fazer de diferente, se houver, em resposta à notificação das ameaças?**
+
+- **Avaliação e Validação das Ameaças:**
+- **Análise Inicial:** A equipe deve avaliar a credibilidade das ameaças recebidas, considerando fatores como o conteúdo, o meio de comunicação utilizado e o contexto organizacional.
+- **Coordenação com Autoridades:** É essencial envolver as autoridades competentes, como a polícia ou agências de segurança cibernética, para investigar a origem e a veracidade das ameaças.
+- **Implementação de Medidas Preventivas:**
+- **Reforço de Segurança:** Dependendo da natureza das ameaças, a equipe pode precisar reforçar as medidas de segurança física e cibernética, como aumentar a vigilância, revisar controles de acesso e monitorar sistemas críticos.
+- **Comunicação Interna:** Informar os funcionários sobre as ameaças de forma controlada, fornecendo orientações sobre comportamentos seguros e procedimentos a serem seguidos.
+- **Documentação e Monitoramento:**
+- **Registro Detalhado:** Manter registros completos de todas as ações tomadas, comunicações recebidas e decisões feitas durante a resposta ao incidente.
+- **Monitoramento Contínuo:** Estabelecer vigilância contínua para detectar quaisquer atividades suspeitas ou tentativas de ataque relacionadas às ameaças recebidas.
+
+**2. Qual impacto controles de segurança física mais rigorosos podem ter nas respostas da equipe a incidentes?**
+
+- **Aumento da Eficiência na Detecção e Resposta:**
+- **Monitoramento Aprimorado:** Controles físicos mais rigorosos, como vigilância aprimorada e controle de acesso restrito, permitem uma detecção mais rápida de atividades suspeitas, facilitando uma resposta mais ágil.
+- **Integração de Sistemas:** A integração entre segurança física e cibernética proporciona uma visão mais abrangente das ameaças, permitindo respostas coordenadas e eficazes. 
+- **Proteção Aprimorada de Dados Sensíveis:**
+- **Redução de Riscos de Vazamento:** Medidas físicas rigorosas protegem ativos físicos e dados sensíveis contra acessos não autorizados, minimizando o risco de vazamentos de informações confidenciais. 
+- **Fortalecimento da Postura Geral de Segurança:**
+- **Resiliência Organizacional:** Uma postura de segurança física robusta contribui para uma defesa mais sólida contra uma variedade de ameaças, aumentando a resiliência da organização. 
+
+Em resumo, a resposta a ameaças anônimas requer uma abordagem coordenada que envolva avaliação cuidadosa, comunicação eficaz e implementação de medidas preventivas. Controles de segurança física mais rigorosos podem significativamente aprimorar a capacidade da equipe de resposta a incidentes de detectar, responder e mitigar ameaças de forma eficaz. 
