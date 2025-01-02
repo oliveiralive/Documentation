@@ -1,0 +1,36 @@
+**Cenário 5: Exfiltração Desconhecida**
+
+Na noite de domingo, um dos sensores de detecção de intrusões de rede da organização alerta sobre atividade de rede de saída anômala envolvendo grandes transferências de arquivos. O analista de intrusões revisa os alertas e observa que milhares de arquivos .RAR estão sendo copiados de um host interno para um host externo localizado em outro país. O analista entra em contato com a equipe de resposta a incidentes para investigar mais a fundo a atividade. A equipe não consegue visualizar o conteúdo dos arquivos .RAR, pois estão criptografados. A análise do host interno contendo os arquivos .RAR revela sinais de instalação de um bot.
+
+**1. Como a equipe determinaria o que provavelmente estava dentro dos arquivos .RAR? Quais outras equipes poderiam auxiliar a equipe de resposta a incidentes?**
+
+Para determinar o conteúdo dos arquivos .RAR criptografados, a equipe pode:
+
+- **Análise de Metadados:** Utilizar ferramentas forenses para examinar os metadados dos arquivos .RAR, como timestamps e tamanhos, para inferir o conteúdo. Ferramentas como o 7-Zip podem ser úteis para análise de timestamps em arquivos comprimidos. 
+- **Análise de Tráfego de Rede:** Examinar os logs de rede para identificar padrões de tráfego associados à transferência dos arquivos, como protocolos utilizados e destinos, o que pode fornecer pistas sobre o conteúdo.
+- **Análise de Logs de Sistema:** Revisar logs de sistema e de aplicativos no host de origem para identificar atividades suspeitas ou comandos executados que possam indicar o conteúdo dos arquivos.
+
+As seguintes equipes podem auxiliar na investigação:
+
+- **Equipe de Forense Digital:** Especialistas em análise de dados podem ajudar na recuperação e análise de arquivos criptografados.
+- **Equipe de Segurança de Rede:** Especialistas em tráfego de rede podem analisar logs e identificar padrões de comunicação suspeitos.
+- **Equipe de Inteligência de Ameaças:** Podem fornecer informações sobre possíveis destinos dos dados exfiltrados e identificar se o host externo está associado a atividades maliciosas conhecidas.
+
+**2. Se a equipe de resposta a incidentes determinasse que a violação inicial foi realizada através de uma placa de rede sem fio no host interno, como a equipe investigaria mais a fundo essa atividade?**
+
+Se a violação inicial foi realizada através de uma placa de rede sem fio, a equipe pode:
+- **Análise de Logs de Rede Sem Fio:** Revisar logs de acesso e autenticação da rede sem fio para identificar dispositivos não autorizados ou conexões suspeitas.
+- **Análise de Tráfego de Rede Sem Fio:** Monitorar o tráfego da rede sem fio para identificar atividades anômalas ou comunicação com dispositivos desconhecidos.
+- **Verificação de Configurações de Segurança:** Avaliar as configurações de segurança da rede sem fio, como criptografia e autenticação, para identificar vulnerabilidades que possam ter sido exploradas.
+- **Análise de Dispositivos Conectados:** Identificar todos os dispositivos conectados à rede sem fio para detectar dispositivos não autorizados ou comprometidos.
+
+**3. Se a equipe de resposta a incidentes determinasse que o host interno estava sendo usado para armazenar arquivos sensíveis de outros hosts dentro da empresa, como a equipe investigaria mais a fundo essa atividade?**
+
+Se o host interno estava sendo usado para armazenar arquivos sensíveis de outros hosts, a equipe pode:
+
+- **Análise de Logs de Acesso:** Revisar logs de acesso ao host para identificar quais usuários ou sistemas acessaram ou transferiram arquivos para o host comprometido.
+- **Análise de Logs de Sistema:** Examinar logs de sistema para identificar atividades suspeitas ou comandos executados que possam indicar movimentação de dados sensíveis.
+- **Verificação de Permissões de Arquivos:** Avaliar as permissões de arquivos e diretórios no host para identificar configurações inadequadas que possam ter permitido o armazenamento não autorizado de dados sensíveis.
+- **Entrevistas com Usuários:** Conduzir entrevistas com usuários que possam ter interagido com o host comprometido para entender o contexto e identificar possíveis falhas de segurança.
+
+Em todos os casos, é essencial documentar cada etapa do processo de investigação e resposta a incidentes para garantir a conformidade com as políticas da organização e facilitar análises futuras. 
