@@ -5,3 +5,29 @@ Contact Information for the Incident Reporter and Handler
 – Email address
 – Phone number
 – Location (e.g., mailing address, office room number)
+
+
+Detalhes do Incidente 
+– Datas/horários de alteração de status (incluindo fuso horário): quando o incidente começou, quando o incidente foi descoberto/detectado, quando o incidente foi reportado, quando o incidente foi resolvido/terminado, etc. 
+– Localização física do incidente (por exemplo, cidade, estado) 
+– Status atual do incidente (por exemplo, ataque em andamento) 
+– Fonte/causa do incidente (se conhecida), incluindo nomes de host e endereços IP 
+– Descrição do incidente (por exemplo, como foi detectado, o que ocorreu) 
+– Descrição dos recursos afetados (por exemplo, redes, hosts, aplicativos, dados), incluindo nomes de host dos sistemas, endereços IP e função 
+– Se conhecida, categoria do incidente, vetores de ataque associados ao incidente e indicadores relacionados ao incidente (padrões de tráfego, chaves do registro, etc.) 
+– Fatores de priorização (impacto funcional, impacto da informação, recuperabilidade, etc.) 
+– Fatores mitigadores (por exemplo, laptop roubado contendo dados sensíveis estava utilizando criptografia de disco completo) 
+– Ações de resposta realizadas (por exemplo, desligamento do host, desconexão do host da rede) 
+– Outras organizações contatadas (por exemplo, fornecedor de software)  Comentários Gerais
+
+Elementos de Dados do Responsável pelo Incidente
+- Status Atual da Resposta ao Incidente
+- Resumo do Incidente
+- Ações tomadas no Incidente
+  – Registro das ações tomadas por todos os responsáveis
+  – Informações de contato de todas as partes envolvidas
+  – Lista de evidências coletadas
+- Comentários do Responsável pelo Incidente
+- Causa do Incidente (por exemplo, aplicativo mal configurado, host não corrigido)
+- Custo do Incidente
+- Impacto nos Negócios do Incidente
