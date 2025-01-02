@@ -1,0 +1,36 @@
+**Cenário 3: Documentos Roubados**  
+Em uma manhã de segunda-feira, o departamento jurídico da organização recebe uma ligação da Policia Federal sobre atividades suspeitas envolvendo os sistemas da organização. 
+Mais tarde, um agente da Policia Federal se reúne com membros da diretoria e do departamento jurídico para discutir a atividade. A Policia Federal está investigando a divulgação pública de documentos confidenciais do governo, 
+e alguns desses documentos supostamente pertencem à organização. O agente solicita a assistência da organização, e a diretoria pede o apoio da equipe de resposta a incidentes para adquirir as evidências necessárias a fim de determinar se os documentos são legítimos e como podem ter sido vazados.  
+
+A seguir estão perguntas adicionais para este cenário:  
+
+**1. De quais fontes a equipe de resposta a incidentes pode coletar evidências?**  
+A equipe de resposta pode reunir evidências de diversas fontes, incluindo:  
+- **Logs de acesso e autenticação**: Registros de servidores, VPN, firewall e Active Directory para identificar acessos suspeitos.  
+- **Sistemas de monitoramento de rede**: IDS/IPS, NetFlow e capturas de pacotes para rastrear transferências de dados anômalas.  
+- **Endpoints**: Verificação forense em computadores e dispositivos móveis para identificar atividades suspeitas ou transferências de arquivos.  
+- **E-mails e comunicações internas**: Análise de caixas de e-mail e logs de mensageria para verificar envios não autorizados.  
+- **Servidores de arquivos e bancos de dados**: Revisão de logs de auditoria para rastrear acessos e cópias de documentos.  
+- **Backup e snapshots**: Comparação de arquivos atuais com backups para verificar se houve alterações ou exclusões suspeitas.  
+
+**2. O que a equipe faria para manter a investigação confidencial?**  
+- **Acesso restrito à investigação**: Limitar o conhecimento do incidente a um pequeno grupo de pessoas essenciais (departamento jurídico, diretoria e equipe de resposta).  
+- **Comunicação criptografada**: Utilizar e-mails e documentos criptografados durante a investigação.  
+- **Compartimentação de dados**: Armazenar evidências em servidores isolados com controle rigoroso de acesso.  
+- **Acordo de confidencialidade**: Exigir que todos os envolvidos assinem NDAs (Acordos de Não Divulgação).  
+- **Código de nomeação do incidente**: Utilizar um codinome ou designação genérica para o incidente em documentos internos.  
+
+**3. Como o tratamento deste incidente mudaria se a equipe identificasse um host interno responsável pelos vazamentos?**  
+- **Isolamento imediato**: Desconectar o host da rede para prevenir mais vazamentos e preservar as evidências.  
+- **Análise forense aprofundada**: Realizar uma análise completa no host para identificar vetores de ataque, ferramentas utilizadas e possíveis contas comprometidas.  
+- **Investigação do usuário**: Determinar se o vazamento foi intencional (insider threat) ou resultado de comprometimento do dispositivo.  
+- **Notificação legal**: Informar ao departamento jurídico para avaliar as implicações legais e tomar as medidas apropriadas.  
+- **Reforço de segurança interna**: Implementar revisões de privilégios e reforçar políticas de controle de dados confidenciais.  
+
+**4. Como o tratamento deste incidente mudaria se a equipe encontrasse um rootkit instalado no host interno responsável pelos vazamentos?**  
+- **Forense detalhada**: O rootkit indica um comprometimento avançado. A equipe realizaria uma análise minuciosa para entender como o rootkit foi implantado e por quanto tempo esteve ativo.  
+- **Formatação e reconstrução**: O host seria completamente formatado e reconstruído a partir de uma imagem confiável, devido à dificuldade de remover rootkits com segurança.  
+- **Análise de persistência**: Identificar mecanismos de persistência utilizados pelo rootkit para evitar reinfecção após a remoção.  
+- **Varredura na rede**: Realizar uma análise na rede para verificar se outros hosts também foram comprometidos.  
+- **Relatório a Policia Federal**: Compartilhar informações detalhadas com o Policia Federal para apoiar a investigação criminal, dado o nível de sofisticação do ataque.
