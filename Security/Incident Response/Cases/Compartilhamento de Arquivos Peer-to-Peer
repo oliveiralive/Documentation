@@ -1,0 +1,41 @@
+**Cenário 10: Compartilhamento de Arquivos Peer-to-Peer**
+
+A organização proíbe o uso de serviços de compartilhamento de arquivos peer-to-peer (P2P). Os sensores de detecção de intrusão da organização têm assinaturas ativadas que podem detectar o uso de vários serviços populares de compartilhamento de arquivos P2P. Em uma segunda-feira à noite, um analista de detecção de intrusão observa que vários alertas de compartilhamento de arquivos ocorreram durante as últimas três horas, todos envolvendo o mesmo endereço IP interno.
+
+**1. Quais fatores devem ser considerados para priorizar o tratamento deste incidente (por exemplo, o conteúdo aparente dos arquivos que estão sendo compartilhados)?**
+
+- **Conteúdo dos Arquivos Compartilhados:**
+  - Determinar se os arquivos compartilhados contêm informações sensíveis ou confidenciais da organização, como dados financeiros, propriedade intelectual ou informações pessoais identificáveis. O compartilhamento não autorizado desses dados pode resultar em violações de privacidade e segurança. 
+
+- **Volume e Frequência do Compartilhamento:**
+  - Avaliar a quantidade de dados sendo compartilhada e a frequência dos eventos de compartilhamento. Compartilhamentos em grande escala ou frequentes indicam uma possível violação significativa de políticas de segurança.
+
+- **Origem e Destino dos Arquivos:**
+  - Identificar se os arquivos estão sendo compartilhados com destinos externos à organização, o que pode indicar exfiltração de dados. Compartilhamentos internos podem ser menos críticos, mas ainda assim representam uma violação de políticas.
+
+- **Tipo de Arquivos Compartilhados:**
+  - Verificar se os arquivos são executáveis ou contêm malware, o que pode comprometer a segurança da rede. O compartilhamento de arquivos maliciosos pode resultar em infecções por vírus, ransomware ou spyware. 
+
+**2. Quais considerações de privacidade podem impactar o tratamento deste incidente?**
+
+- **Monitoramento de Atividades Pessoais:**
+  - Monitorar atividades de compartilhamento de arquivos pode envolver a análise de dados pessoais dos funcionários. É essencial garantir que o monitoramento seja realizado de acordo com as políticas de privacidade da organização e as leis aplicáveis. 
+
+- **Consentimento e Transparência:**
+  - A organização deve informar os funcionários sobre as práticas de monitoramento e obter consentimento, conforme exigido por lei. A falta de transparência pode levar a questões legais e de confiança. 
+
+- **Proteção de Dados Sensíveis:**
+  - Ao investigar o incidente, é crucial proteger a privacidade dos indivíduos envolvidos, evitando a exposição de informações pessoais ou confidenciais durante o processo de investigação.
+
+**3. Como o tratamento deste incidente seria diferente se o computador realizando o compartilhamento de arquivos P2P também contivesse informações pessoais identificáveis sensíveis?**
+
+- **Risco Aumentado de Exfiltração de Dados:**
+  - Se o computador comprometido contém informações pessoais identificáveis (PII) sensíveis, o risco de exfiltração de dados aumenta significativamente. A organização deve priorizar a contenção do incidente para evitar a divulgação não autorizada de PII. 
+
+- **Notificação e Conformidade Regulatória:**
+  - A organização pode ser obrigada a notificar os indivíduos afetados e autoridades reguladoras sobre a violação de dados, conforme exigido por leis de proteção de dados, como o GDPR ou a LGPD.
+
+- **Investigação Forense Aprofundada:**
+  - Será necessária uma investigação forense mais detalhada para determinar a extensão da violação de dados pessoais, identificar os responsáveis e implementar medidas corretivas para prevenir futuros incidentes.
+
+Em resumo, ao lidar com incidentes de compartilhamento de arquivos P2P não autorizado, é fundamental considerar o conteúdo e a origem dos arquivos compartilhados, as implicações de privacidade e a presença de informações pessoais sensíveis nos dispositivos comprometidos. Uma resposta eficaz requer uma abordagem equilibrada que proteja a segurança da organização e respeite a privacidade dos indivíduos envolvidos. 
