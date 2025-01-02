@@ -1,0 +1,26 @@
+# Install
+https://docs.docker.com/engine/install/ubuntu/
+
+Check
+# docker version
+# dps.sh
+# docker ps
+# docker images
+
+Run/Stop
+# docker run kodekloud/webapp
+# docker stop (ID)
+
+Nat
+# docker run -p 80:5000 kodekloud/webapp
+
+
+Network
+# docker network ls
+# docker network inspect (ID)
+
+
+
+
+Logs:
+# tail –f /data/xxx/log
