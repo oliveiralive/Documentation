@@ -1,0 +1,38 @@
+**Cenário 7: IP Atacante Desaparecido**
+
+Em uma tarde de quinta-feira, um sensor de detecção de intrusão na rede registrou atividades de varredura de vulnerabilidades direcionadas a hosts internos, originadas de um endereço IP interno. Como a analista de detecção de intrusões não tinha conhecimento de nenhuma atividade autorizada ou programada de varredura de vulnerabilidades, ela relatou o ocorrido à equipe de resposta a incidentes. Quando a equipe iniciou a análise, descobriu que a atividade havia cessado e que não havia mais nenhum host utilizando o referido endereço IP.
+
+A seguir estão perguntas adicionais para este cenário:
+
+**1. Quais fontes de dados podem conter informações sobre a identidade do host que realizou a varredura de vulnerabilidades?**
+- **Logs de DHCP**: Podem fornecer informações sobre quais dispositivos foram atribuídos ao endereço IP em questão durante o período da atividade suspeita.
+- **Registros de ARP**: Podem mapear endereços IP para endereços MAC, ajudando a identificar o dispositivo físico envolvido.
+- **Logs de switches e roteadores**: Podem indicar a porta física à qual o dispositivo estava conectado, auxiliando na localização física do host.
+- **Registros de sistemas de autenticação**: Podem mostrar quais usuários estavam logados em quais dispositivos no momento da atividade.
+
+**2. Como a equipe identificaria quem estava realizando as varreduras de vulnerabilidades?**
+- **Análise dos dados coletados**: Correlacionar informações dos logs de DHCP, ARP e dispositivos de rede para identificar o dispositivo e, consequentemente, o usuário responsável.
+- **Verificação de logs de autenticação**: Determinar qual usuário estava logado no dispositivo identificado durante o período das varreduras.
+- **Entrevistas**: Conversar com os usuários identificados e suas respectivas equipes para confirmar se a atividade foi autorizada ou se houve algum comportamento suspeito.
+
+**3. Como o tratamento deste incidente diferiria se a varredura de vulnerabilidades fosse direcionada aos hosts mais críticos da organização?**
+- **Prioridade elevada**: Aumentar a prioridade da investigação devido ao potencial risco aos ativos mais sensíveis da organização.
+- **Análise aprofundada**: Realizar uma análise mais detalhada para identificar possíveis comprometimentos ou exposições de dados críticos.
+- **Notificação à alta administração**: Informar imediatamente os gestores responsáveis pelos ativos críticos sobre a potencial ameaça.
+
+**4. Como o tratamento deste incidente diferiria se a varredura de vulnerabilidades fosse direcionada a hosts externos?**
+- **Verificação de políticas de segurança**: Avaliar se as políticas internas permitem varreduras em hosts externos e se houve violação dessas políticas.
+- **Análise de logs de firewall e proxies**: Examinar registros para identificar e confirmar a origem e o destino das varreduras externas.
+- **Possível comunicação com terceiros**: Se as varreduras afetaram sistemas de outras organizações, pode ser necessário entrar em contato com elas para mitigar possíveis repercussões legais ou de reputação.
+
+**5. Como o tratamento deste incidente diferiria se o endereço IP interno estivesse associado à rede sem fio para convidados da organização?**
+- **Isolamento da rede de convidados**: Verificar se a rede de convidados está devidamente segmentada para impedir acessos não autorizados à rede interna.
+- **Análise de logs de acesso à rede sem fio**: Identificar qual dispositivo e usuário estavam utilizando o endereço IP na rede de convidados durante o incidente.
+- **Revisão de políticas de acesso**: Assegurar que os usuários da rede de convidados não tenham permissões além das necessárias, prevenindo futuras atividades maliciosas.
+
+**6. Como o tratamento deste incidente diferiria se a equipe de segurança física descobrisse que alguém invadiu a instalação meia hora antes da ocorrência da varredura de vulnerabilidades?**
+- **Coordenação com segurança física**: Trabalhar em conjunto com a equipe de segurança física para revisar imagens de câmeras de segurança e registros de acesso ao prédio.
+- **Análise forense completa**: Realizar uma investigação forense nos sistemas potencialmente comprometidos para identificar quaisquer malwares ou backdoors instalados.
+- **Notificação às autoridades**: Considerar envolver as autoridades policiais devido à invasão física e potencial comprometimento de sistemas críticos.
+
+A abordagem detalhada e adaptativa a cada uma dessas situações é essencial para mitigar riscos, proteger dados sensíveis e manter a integridade dos sistemas da organização. 
