@@ -1,0 +1,32 @@
+**Cenário 4: Servidor de Banco de Dados Comprometido**
+
+Em uma noite de terça-feira, um administrador de banco de dados realiza manutenção fora do horário em vários servidores de banco de dados de produção. 
+O administrador nota alguns nomes de diretórios desconhecidos e incomuns em um dos servidores. Após revisar as listagens de diretórios e visualizar alguns arquivos, 
+o administrador conclui que o servidor foi atacado e chama a equipe de resposta a incidentes para assistência. A investigação da equipe determina que o invasor obteve acesso root ao servidor há seis semanas.
+
+A seguir estão perguntas adicionais para este cenário:
+
+**1. Quais fontes a equipe pode usar para determinar quando ocorreu o comprometimento?**
+- **Logs do sistema**: Analisar logs de autenticação, logs de auditoria de segurança e logs de eventos do sistema para identificar atividades suspeitas no período em questão.
+- **Carimbos de data/hora de arquivos**: Verificar metadados de arquivos e diretórios para identificar alterações ou criações que coincidam com o período do comprometimento.
+- **Backups**: Comparar backups anteriores com o estado atual do sistema para identificar quando ocorreram mudanças não autorizadas.
+- **Registros de rede**: Examinar logs de firewall, IDS/IPS e outros dispositivos de segurança de rede para detectar conexões ou atividades anômalas que possam indicar o momento do comprometimento.
+
+**2. Como o tratamento deste incidente mudaria se a equipe descobrisse que o servidor de banco de dados estava executando um sniffer de pacotes e capturando senhas da rede?**
+- **Isolamento imediato**: Desconectar o servidor comprometido da rede para impedir a captura contínua de credenciais.
+- **Análise forense**: Realizar uma investigação detalhada para determinar o escopo da captura de dados e identificar quais credenciais foram comprometidas.
+- **Alteração de credenciais**: Forçar a redefinição de todas as senhas potencialmente comprometidas para evitar acessos não autorizados adicionais.
+- **Monitoramento de rede**: Implementar monitoramento reforçado para detectar atividades suspeitas que possam resultar do uso de credenciais comprometidas.
+
+**3. Como o tratamento deste incidente mudaria se a equipe descobrisse que o servidor estava executando um processo que copiava um banco de dados contendo informações sensíveis de clientes (incluindo informações pessoalmente identificáveis) todas as noites e as transferia para um endereço externo?**
+- **Interrupção imediata da exfiltração**: Parar o processo de transferência de dados e bloquear o endereço externo para impedir vazamentos adicionais.
+- **Notificação de violação de dados**: Avaliar as obrigações legais e regulatórias para notificar clientes e autoridades sobre a violação de dados, conforme exigido por leis como a LGPD.
+- **Análise de impacto**: Determinar o volume e a sensibilidade dos dados exfiltrados para avaliar os riscos potenciais para os clientes afetados.
+- **Revisão de segurança de dados**: Implementar medidas adicionais de segurança para proteger informações sensíveis, como criptografia de dados em repouso e em trânsito, e reforçar controles de acesso.
+
+**4. Como o tratamento deste incidente mudaria se a equipe descobrisse um rootkit no servidor?**
+- **Análise forense aprofundada**: Realizar uma investigação minuciosa para entender a extensão do comprometimento e identificar quaisquer backdoors ou malware adicionais instalados pelo rootkit.
+- **Reinstalação do sistema**: Devido à natureza furtiva dos rootkits, é recomendável reinstalar o sistema operacional a partir de mídias confiáveis para garantir a remoção completa do malware.
+- **Verificação de outros sistemas**: Conduzir varreduras em outros servidores e dispositivos na rede para detectar possíveis infecções semelhantes, já que a presença de um rootkit pode indicar um ataque mais amplo.
+- **Revisão de políticas de segurança**: Avaliar e fortalecer as políticas de segurança existentes para prevenir futuras infecções por rootkits, incluindo a implementação de soluções avançadas de detecção e resposta a ameaças.
+A presença de um rootkit indica um nível elevado de comprometimento, exigindo medidas rigorosas para restaurar a integridade do sistema e proteger contra ameaças futuras. 
