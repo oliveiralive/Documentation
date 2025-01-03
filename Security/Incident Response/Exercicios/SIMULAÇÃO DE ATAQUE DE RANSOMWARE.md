@@ -19,7 +19,7 @@ Alerta de segurança
 
 Fase 1: Detecção e Triagem Iniciais 
 
-Injeção 1: Atividade Suspeita Descoberta
+Insight 1: Atividade Suspeita Descoberta
 1. O Alerta relata tráfego de saída incomum para um IP não publico.
 2. Os logs de segurança revelam um download de arquivo suspeito seguido por criptografia rápida de arquivo.
    
@@ -39,3 +39,47 @@ Perguntas para o analista L3:
 Perguntas para o gerente do SOC:
 1. Como você prioriza as próximas etapas, garantindo o mínimo de interrupção operacional?
 2. Quais estratégias de comunicação você implementaria para as partes interessadas internas e externas?
+
+
+Fase 2: Contenção 
+Insight 2: Disseminação da infecção
+• A TI relata que três servidores no departamento financeiro estão inacessíveis.
+• A análise do tráfego de rede mostra conexões em andamento com o IP externo (45.77.89.120).
+
+Perguntas para o analista L1:
+1. Quais etapas você deve seguir para isolar os sistemas afetados?
+2. Como você documenta o incidente para análise posterior?
+
+Perguntas para o analista L2:
+1. Como você usa os dados de tráfego de rede para conter a ameaça?
+2. Quais técnicas de mitigação devem ser aplicadas para evitar o movimento lateral?
+
+Perguntas para o analista L3:
+1. Como você analisa o malware para criar IoCs (indicadores de comprometimento) acionáveis?
+2. Quais ferramentas avançadas podem ser usadas para avaliar o escopo completo dos ativos afetados?
+
+Perguntas para o gerente do SOC:
+1. Como você garante que as ações de contenção estejam alinhadas com as prioridades do negócio?
+2. Quais recursos são necessários para recuperação imediata?
+
+
+Fase 3: Análise da causa raiz 
+Injeção 3: Vetor de ataque descoberto
+
+• Os logs do gateway de e-mail revelam que o ransomware se originou de um e-mail de phishing enviado ao usuário_123, com um anexo malicioso chamado "invoice_0321.exe".
+
+Perguntas para o analista L1:
+1. Como você rastreia o e-mail de phishing até sua origem?
+2. Quais indicadores você procuraria nos e-mails de outros usuários?
+
+Perguntas para o analista L2:
+1. Como você correlaciona o e-mail de phishing com a atividade do endpoint?
+2. Quais recomendações você faria para fortalecer a segurança do e-mail?
+
+Perguntas para o analista L3:
+1. Como você usa a inteligência de ameaças para avaliar o risco de ataques semelhantes?
+2. Quais medidas adicionais podem ser tomadas para fortalecer os endpoints?
+   
+Perguntas para o gerente do SOC:
+1. Como você apresenta as descobertas à liderança executiva?
+2. Como você aloca recursos para melhorias de longo prazo?
