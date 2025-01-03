@@ -1,17 +1,18 @@
 ```
 Analise Inicial
 
-1.0 Confirmar a existência do incidente (Entender se o incidente precisa de mais atenção ou apenas report)
-1.1 Analisar os indicadores, (ex: verificar extenção do ransonware, tipo do binario executado, entender se ação potencialmente maliciosa foi feita por um funcionario autorizado)
-1.2 Correlacionar informações de diferentes fontes (Levantar outros logs, FIREWALL, IDS/IPS, Anti-Virus, Cloud) (Buscar logins com sucesso e falha, instalações, criação de usuarios...)
-1.3 Mapear usuarios locais e persistencias
-1.4 Avaliar regras de FIREWALL
-1.5 Consultar bases de conhecimento externas (Levantar o maximo de informação externa sobre os IOCs identificados ate o momento, tipo do ataque, grupo de ransonware, ips usados e etc)
+1.1.1 Confirmar a existência do incidente (Entender se o incidente precisa de mais atenção ou apenas report)
+1.1.2 Analisar os indicadores, (ex: verificar extenção do ransonware, tipo do binario executado, entender se ação potencialmente maliciosa foi feita por um funcionario autorizado)
+1.1.3 Cadeia de Custódia (N de Serie de equipamentos, IPs, MacAdrrs) (Nomes, Cargos, Telefone e email dos responsaveis pela maquina ou sistema) (Nome e contatos do analista), (Data e Hora), (Local da ocorrencia)
 
+1.2.1 Priorizar o tratamento do incidente com base no impacto
+1.2.2 Impacto Funcional (Detalhar quals servidores e serviços estão indisponiveis)
+1.2.3 Impacto Informacional (Detalhar quais dados sensiveis foram vazados ou corrompidos)
 
-1.7 Priorizar o tratamento do incidente com base no impacto
-1.8 Impacto Funcional (Detalhar quals servidores e serviços estão indisponiveis)
-1.9 Impacto Informacional (Detalhar quais dados sensiveis foram vazados ou corrompidos)
+1.3.1 Correlacionar informações de diferentes fontes (Levantar outros logs, FIREWALL, IDS/IPS, Anti-Virus, Cloud) (Buscar logins com sucesso e falha, instalações, criação de usuarios...)
+1.3.2 Mapear usuarios locais e persistencias
+1.3.3 Avaliar regras de FIREWALL
+1.3.4 Consultar bases de conhecimento externas (Levantar o maximo de informação externa sobre os IOCs identificados ate o momento, tipo do ataque, grupo de ransonware, ips usados e etc)
 
 1.10 Estimar o esforço necessário para recuperação.
 
@@ -20,24 +21,21 @@ Analise Inicial
 1.11.2 Informar partes externas (parceiros, provedores de serviços, autoridades) conforme necessário.
 
 Contenção, Erradicação e Recuperação
+3.1 Isolar sistemas/hosts afetados (desconectar da rede, bloquear acessos, reiniciar senhas).
 2. Garantir preservação e integridade das evidências (Coletar logs, snapshots e informações relevantes antes de formatar maquinas)
-3. Conter o incidente (Excluir regras de firewall, Remover persistencias, )
-3.1 Isolar sistemas/hosts afetados (bloquear acessos, desconectar da rede, reiniciar senhas).
 3.2 Aplicar controles temporários para limitar danos. (Remover acessos, desabilitar VPNs, Fechar portas, Criar regras que limitem acessos a redes de nucleo)
 
 Erradicar o incidente
-6.0 Restaurar Backups se nescessário
+6.0 Caso a maquina esteja criptografada, pular para o passo 7.0, caso contrario seguir para passo 6.1
+6.3 Identificar processos e drivers maliciosos, matar os processos, remover persistencias, deletar arquivos de malwares, analisar usuarios locais, revisao senhas, reiniciar e repetir (Ferramentas: Process Explorer, Process Monitor, Autoruns)
 6.1 Identificar e mitigar todas as vulnerabilidades exploradas (Levantar vulnerabilidades do CISA e zera-las)
-6.2 Remover malwares, materiais inadequados, persistencias e usuarios locais
-6.3 Identificar processos e drivers maliciosos, matar os processos, remover persistencias, deletar arquivos de malwares, reiniciar e repetir
-6.4 (Ferramentas: Process Explorer)
-6.3 Se forem descobertos mais hosts afetados (por exemplo, novas infecções por malware), repetir os passos acima) para identificar todos os outros hosts afetados, e em seguida conter e erradicar o incidente nesses sistemas
+6.5 Se forem descobertos mais hosts afetados (por exemplo, novas infecções por malware), repetir os passos acima
 
 Recuperar do incidente
-7.0 Restaurar Backups se nescessário
+7.0 Restaurar Backups
 7.1 Retornar os sistemas afetados a um estado operacional
 7.2 Confirmar que os sistemas afetados estão funcionando normalmente
-7.3 Apos a restauração de backup, repetir passo 6.0 a 6.2 para garantir que maquinas estejam de fato limpas
+7.3 Apos a restauração de backup, repetir passo 6.0 a 6.5 para garantir que maquinas estejam de fato limpas
 7.3 Implementar monitoramento adicional para observar possíveis atividades suspeitas
 
 Atividade Pós-Incidente
