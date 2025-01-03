@@ -1,3 +1,4 @@
+```
 Preparação 
 1.O SOC consideraria essa atividade um incidente? Se sim, qual das políticas da organização essa atividade viola? (Seção 2.1)
 
@@ -41,3 +42,6 @@ Como cada relatório seria feito? Quais informações você relataria ou não, e
 5. Quais ferramentas e recursos a equipe usaria para lidar com este incidente? (Seção 3.1.1)
 6. Quais aspectos do tratamento teriam sido diferentes se o incidente tivesse ocorrido em um dia e hora diferentes (dentro do horário comercial versus fora do horário comercial)? (Seção 2.4.2)
 7. Quais aspectos do tratamento teriam sido diferentes se o incidente tivesse ocorrido em um local físico diferente (no local versus fora do local)? (Seção 2.4.2)
+
+
+```
