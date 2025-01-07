@@ -17,7 +17,7 @@ Alerta de segurança
 
 <img width="718" alt="image" src="https://github.com/user-attachments/assets/d5aa1a70-e4d5-48c8-aa1e-885524b46e94" />
 
-Fase 1: Detecção e Triagem Iniciais 
+## Fase 1: Detecção e Triagem Iniciais 
 
 Insight 1: Atividade Suspeita Descoberta
 1. O Alerta relata tráfego de saída incomum para um IP não publico.
@@ -25,7 +25,7 @@ Insight 1: Atividade Suspeita Descoberta
    
 Perguntas para o Analista L1:
 1. Quais ações iniciais você deve tomar ao receber o Alerta?
-   R1. Revise os detalhes do alerta do SIEM: o Observe o IP de origem, o IP de destino e a descrição do alerta. o Verifique se o IP externo (45.77.89.120) é reconhecido ou sinalizado em bancos de dados de inteligência de ameaças.
+R1. Revise os detalhes do alerta do SIEM: o Observe o IP de origem, o IP de destino e a descrição do alerta. o Verifique se o IP externo (45.77.89.120) é reconhecido ou sinalizado em bancos de dados de inteligência de ameaças.
       
 2. Como você valida se essa atividade é maliciosa?
    R2. Ao Consultar logs do sistema de origem (192.168.1.24), Confirmar a presença de atividade de criptografia de arquivo e identificar processos associados, verificar notas de resgate ou arquivos executáveis ​​suspeitos (invoice_0321.exe).
@@ -58,7 +58,7 @@ Perguntas para o gerente do SOC:
    R. Notifique os executivos sobre o potencial impacto comercial.
       o Prepare uma estratégia de comunicação externa para clientes afetados ou órgãos reguladores, se necessário.
 
-Fase 2: Contenção 
+## Fase 2: Contenção 
 Insight 2: Disseminação da infecção
 • A TI relata que três servidores no departamento financeiro estão inacessíveis.
 • A análise do tráfego de rede mostra conexões em andamento com o IP externo (45.77.89.120).
@@ -75,9 +75,10 @@ Perguntas para o analista L2:
   R. Utilize ferramentas disponiveis para bloquear os IPs publicos identificados na analise do malware
  
 3. Quais técnicas de mitigação devem ser aplicadas para evitar o movimento lateral?
-   R. O Vigilant pode bloquear os IPs dos servidores temporariamente ate que tenham sido recuperados, tambem é valido segmentar a rede e fazer bloqueios em regras de firewall limitando acessos de redes (segmentações).
+   R. O Vigilant pode bloquear os IPs dos servidores temporariamente ate que tenham sido recuperados, coloque em quarentena os segmentos de rede afetados para isolar os sistemas criptografados e evitar movimento lateral. Isso pode ser feito bloqueando a comunicação entre os segmentos afetados e não afetados usando firewalls ou listas de controle de acesso à rede (ACLs).
    R. Resete senhas de contas impactadas (ou todas), analise usuarios em maquinas e persistencias, desabilite compartilhamentos de arquivos, e reveja privilégios para uma politica de ZeroThrust.
-
+   R. Desabilite compartilhamentos de rede em sistemas afetados para evitar mais criptografia de arquivos na rede.
+   
 Perguntas para o analista L3:
 1. Como você analisa o malware para criar IoCs (indicadores de comprometimento) acionáveis?
 2. Quais ferramentas avançadas podem ser usadas para avaliar o escopo completo dos ativos afetados?
@@ -91,7 +92,30 @@ Perguntas para o gerente do SOC:
    R. Aloque recursos técnicos para as equipes de contenção e recuperação.
    R. Designe especialistas em comunicação para lidar com atualizações internas e externas.
 
-Fase 3: Análise da causa raiz 
+
+
+## Fase 3: Erradicação e Recuperação
+
+1. Quais etapas a SOC deve seguir para proteger os backups durante a analise?
+Verifique a integridade do backup: verifique imediatamente se os backups estão intactos e não afetados pelo ransomware. Verifique se os backups não foram criptografados comparando hashes e extensões de arquivo.
+Desconecte os sistemas de backup: certifique-se de que os sistemas de backup (tanto no local quanto na nuvem) estejam desconectados da rede ou isolados para impedir que o ransomware os tenha como alvo.
+o Autenticação de backup: verifique a integridade da autenticação de backup e certifique-se de que as credenciais de backup estejam seguras.
+
+2. Como garantir a restauração ou recuperação de backup?
+Verifique a chave de descriptografia: se a nota de resgate indicar a disponibilidade de uma chave de descriptografia, confirme sua autenticidade realizando testes em um pequeno conjunto de arquivos criptografados. No entanto, a descriptografia pelos invasores deve ser tratada com cautela devido ao risco de falha e corrupção de dados.
+
+Restauração do backup:
+1 Priorizar a restauração de arquivos de um backup limpo conhecido antes que o ataque ocorresse.
+Executar uma restauração completa para sistemas críticos (RH, Finanças) para minimizar o tempo de inatividade.
+
+
+
+Como a equipe do SOC deve garantir que todos os vestígios do ransomware sejam removidos?
+Validar a integridade dos arquivos e sistemas restaurados para garantir que nenhum vestígio de ransomware permaneça.
+
+
+
+## Fase 3: Análise da causa raiz 
 Injeção 3: Vetor de ataque descoberto
 
 • Os logs do gateway de e-mail revelam que o ransomware se originou de um e-mail de phishing enviado ao usuário_123, com um anexo malicioso chamado "invoice_0321.exe".
