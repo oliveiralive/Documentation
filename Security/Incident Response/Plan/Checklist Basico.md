@@ -3,7 +3,7 @@ Analise Inicial
 
 1.1.1 Confirmar a existência do incidente (Entender se o incidente precisa de mais atenção ou apenas report)
 1.1.2 Analisar os indicadores, (ex: verificar extenção do ransonware, tipo do binario executado, entender se ação potencialmente maliciosa foi feita por um funcionario autorizado) (Nesse passo, recomenda-se olhar o playbook do incidente especifico para mais detalhes https://github.com/oliveiralive/Documentation/tree/main/Security/Incident%20Response/Playbooks)
-1.1.3 Cadeia de Custódia (N de Serie de equipamentos, IPs, MacAdrrs) (Nomes, Cargos, Telefone e email dos responsaveis pela maquina ou sistema) (Nome e contatos do analista), (Data e Hora), (Local da ocorrencia)
+1.1.3 Cadeia de Custódia (N de Serie de equipamentos, IPs, MacAdrrs) (Nomes, Cargos, Telefone e email dos responsaveis pela maquina ou sistema) (Nome e contatos do analista), (Data e Hora), (Local da ocorrencia) (Vide formulario de coleta de informação https://github.com/oliveiralive/Documentation/tree/main/Security/Incident%20Response/Coleta%20de%20Informações)
 
 1.2.1 Priorizar o tratamento do incidente com base no impacto
 1.2.2 Impacto Funcional (Detalhar quals servidores e serviços estão indisponiveis)
