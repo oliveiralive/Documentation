@@ -25,7 +25,7 @@ Insight 1: Atividade Suspeita Descoberta
    
 Perguntas para o Analista L1:
 1. Quais ações iniciais você deve tomar ao receber o Alerta?
-R1. Revise os detalhes do alerta do SIEM: o Observe o IP de origem, o IP de destino e a descrição do alerta. o Verifique se o IP externo (45.77.89.120) é reconhecido ou sinalizado em bancos de dados de inteligência de ameaças.
+R1. Revise os detalhes do alerta do SIEM: o Observe o IP de origem, o IP de destino e a descrição do alerta. o Verifique se o IP externo (Ex: 45.77.89.120) é reconhecido ou sinalizado em bancos de dados de inteligência de ameaças.
       
 2. Como você valida se essa atividade é maliciosa?
    R2. Ao Consultar logs do sistema de origem (192.168.1.24), Confirmar a presença de atividade de criptografia de arquivo e identificar processos associados, verificar notas de resgate ou arquivos executáveis ​​suspeitos (invoice_0321.exe).
@@ -37,7 +37,7 @@ R1. Revise os detalhes do alerta do SIEM: o Observe o IP de origem, o IP de dest
 
 Perguntas para o Analista L2:
 1. Como você confirma qual o tipo de ransonware impactou a maquina?
-   R. Submeta um arquivo criptografado em plataformas como ID Ransonware (https://id-ransomware.malwarehunterteam.com/index.php?lang=en_US) para descobrir o tipo do Ransonware, tambem vale submeter o arquivo criptografado no binwalk (https://github.com/ReFirmLabs/binwalk) para mais detalhes, caso tenha acesso executavel do ransonware, execute-o em uma sandbox e procure os IPs que ele se comunica.
+   R. Submeta um arquivo criptografado em plataformas como ID Ransonware (https://id-ransomware.malwarehunterteam.com/index.php?lang=en_US) ou No more ransom (https://www.nomoreransom.org/crypto-sheriff.php) para descobrir o tipo do Ransonware, tambem vale submeter o arquivo criptografado no binwalk (https://github.com/ReFirmLabs/binwalk) para mais detalhes, caso tenha acesso executavel do ransonware, execute-o em uma sandbox e procure os IPs que ele se comunica (AnyRun)
    
 3. Quais registros ou ferramentas adicionais você examinaria para entender o escopo?
    R. Revise logs de firewall e Proxy buscando conexões externas de maquinas da rede com esses IPs suspeitos.
@@ -76,12 +76,14 @@ Perguntas para o analista L2:
  
 3. Quais técnicas de mitigação devem ser aplicadas para evitar o movimento lateral?
    R. O Vigilant pode bloquear os IPs dos servidores temporariamente ate que tenham sido recuperados, coloque em quarentena os segmentos de rede afetados para isolar os sistemas criptografados e evitar movimento lateral. Isso pode ser feito bloqueando a comunicação entre os segmentos afetados e não afetados usando firewalls ou listas de controle de acesso à rede (ACLs).
-   R. Resete senhas de contas impactadas (ou todas), analise usuarios em maquinas e persistencias, desabilite compartilhamentos de arquivos, e reveja privilégios para uma politica de ZeroThrust.
-   R. Desabilite compartilhamentos de rede em sistemas afetados para evitar mais criptografia de arquivos na rede.
+   R. Resete senhas de contas impactadas (ou todas), analise usuarios em maquinas e persistencias, desabilite compartilhamentos de arquivos, e reveja privilégios para uma politica de ZeroTrust.
+
    
 Perguntas para o analista L3:
 1. Como você analisa o malware para criar IoCs (indicadores de comprometimento) acionáveis?
+   R. ?
 2. Quais ferramentas avançadas podem ser usadas para avaliar o escopo completo dos ativos afetados?
+   R. ?
 
 Perguntas para o gerente do SOC:
 1. Como você garante que as ações de contenção estejam alinhadas com as prioridades do negócio?
@@ -99,10 +101,12 @@ Perguntas para o gerente do SOC:
 1. Quais etapas a SOC deve seguir para proteger os backups durante a analise?
 Verifique a integridade do backup: verifique imediatamente se os backups estão intactos e não afetados pelo ransomware. Verifique se os backups não foram criptografados comparando hashes e extensões de arquivo.
 Desconecte os sistemas de backup: certifique-se de que os sistemas de backup (tanto no local quanto na nuvem) estejam desconectados da rede ou isolados para impedir que o ransomware os tenha como alvo.
-o Autenticação de backup: verifique a integridade da autenticação de backup e certifique-se de que as credenciais de backup estejam seguras.
+Autenticação de backup: verifique a integridade da autenticação de backup e certifique-se de que as credenciais de backup estejam seguras.
 
+????
 2. Como garantir a restauração ou recuperação de backup?
 Verifique a chave de descriptografia: se a nota de resgate indicar a disponibilidade de uma chave de descriptografia, confirme sua autenticidade realizando testes em um pequeno conjunto de arquivos criptografados. No entanto, a descriptografia pelos invasores deve ser tratada com cautela devido ao risco de falha e corrupção de dados.
+????
 
 Restauração do backup:
 1 Priorizar a restauração de arquivos de um backup limpo conhecido antes que o ataque ocorresse.
@@ -110,13 +114,9 @@ Executar uma restauração completa para sistemas críticos (RH, Finanças) para
 
 
 
-Como a equipe do SOC deve garantir que todos os vestígios do ransomware sejam removidos?
-Validar a integridade dos arquivos e sistemas restaurados para garantir que nenhum vestígio de ransomware permaneça.
-
-
 
 ## Fase 3: Análise da causa raiz 
-Injeção 3: Vetor de ataque descoberto
+Vetor de ataque descoberto
 
 • Os logs do gateway de e-mail revelam que o ransomware se originou de um e-mail de phishing enviado ao usuário_123, com um anexo malicioso chamado "invoice_0321.exe".
 
@@ -128,6 +128,7 @@ Perguntas para o analista L1:
 2. Quais indicadores você procuraria nos e-mails de outros usuários?
   R.Use pesquisas de regex no gateway de e-mail para encontrar padrões (“invoice_*.exe”).
   R.Verifique se outros usuários receberam e-mails semelhantes ou clicaram no link malicioso.
+  R. Analisar playbook de phishing para mais detalhes (https://github.com/oliveiralive/Documentation/blob/main/Security/Incident%20Response/Playbooks/PHISHING.md)
 
 Perguntas para o analista L2:
 1. Como você correlaciona o e-mail de phishing com a atividade do endpoint?
