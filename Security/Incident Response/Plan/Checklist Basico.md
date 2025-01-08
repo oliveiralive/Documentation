@@ -11,7 +11,7 @@ Analise Inicial
 
 1.3.1 Correlacionar informações de diferentes fontes (Levantar outros logs, FIREWALL, IDS/IPS, Anti-Virus, Cloud) (Buscar logins com sucesso e falha, instalações, criação de usuarios...)
 1.3.2 Mapear usuarios locais e persistencias
-1.3.3 Avaliar regras de FIREWALL
+1.3.3 Avaliar regras de FIREWALL (Fazer topologia de acesso, mapeando as portas que as redes se falam)
 1.3.4 Consultar bases de conhecimento externas (Levantar o maximo de informação externa sobre os IOCs identificados ate o momento, tipo do ataque, grupo de ransonware, ips usados e etc)
 
 1.4 Estimar o esforço necessário para recuperação.
@@ -26,7 +26,7 @@ Contenção, Erradicação e Recuperação
 2.3 Aplicar controles temporários para limitar danos. (Remover acessos, desabilitar VPNs, Fechar portas, Criar regras que limitem acessos a redes de nucleo)
 
 Erradicar o incidente
-3.1 Caso a maquina esteja criptografada, pular para o passo 7.0, caso contrario seguir para passo 6.1
+3.1 Caso a maquina esteja criptografada e exista backup, pular para o passo 4.1, caso contrario seguir para passo 3.2
 3.2 Identificar processos e drivers maliciosos, matar os processos, remover persistencias, deletar arquivos de malwares, analisar usuarios locais, revisao senhas, reiniciar e repetir (Ferramentas: Process Explorer, Process Monitor, Autoruns)
 3.3 Identificar e mitigar todas as vulnerabilidades exploradas (Levantar vulnerabilidades do CISA e zera-las)
 3.4 Se forem descobertos mais hosts afetados (por exemplo, novas infecções por malware), repetir os passos acima
@@ -35,7 +35,7 @@ Recuperar do incidente
 4.1 Restaurar Backups
 4.2 Retornar os sistemas afetados a um estado operacional
 4.3 Confirmar que os sistemas afetados estão funcionando normalmente
-4.4 Apos a restauração de backup, repetir passo 6.0 a 6.5 para garantir que maquinas estejam de fato limpas
+4.4 Apos a restauração de backup, repetir passo 3.1 a 3.4 para garantir que maquinas estejam de fato limpas
 4.5 Implementar monitoramento adicional para observar possíveis atividades suspeitas
 
 Atividade Pós-Incidente
