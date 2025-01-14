@@ -9,7 +9,7 @@ Quando vc executa o aplicativo todos os autoruns sao apresentados
 
 
 
-Alguns pontos de atenção, binarios não assinados são grigados em vermelho, scrips podem eventualmente vir marcados como assinados, "é valido analisar os commandlines"
+Alguns pontos de atenção, binarios não assinados são grifados em vermelho, scrips podem eventualmente vir marcados como assinados, "é valido analisar os commandlines"
 ![Screenshot 2025-01-14 at 14 50 59](https://github.com/user-attachments/assets/5c19d563-2f99-43c0-8a21-120ae1680a65)
 
 
