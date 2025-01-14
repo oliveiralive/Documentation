@@ -54,5 +54,10 @@ Dica, na aba Options, desative a resolução de name para facilitar a analise ca
 
 ![Screenshot 2025-01-14 at 11 33 52](https://github.com/user-attachments/assets/d46e0161-9d94-44ad-8a58-4cf45fe9cfca)
 
+Abaixo um video com casos de uso do proprio Mark Russinovich (Criador da ferramenta)
+
+https://youtu.be/A_TPZxuTzBU?si=81Rfbrp3XfxCdccl&t=1719
+
+
 
 
