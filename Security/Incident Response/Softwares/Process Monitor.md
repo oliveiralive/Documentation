@@ -23,7 +23,7 @@ https://learn.microsoft.com/pt-br/sysinternals/downloads/procmon
 
 5: Colorir algum evento, processo, image... (pode ser util para destacar algo importante)
 
-## Os itens abaixo mostram oque o processo analisado esta manipulando, é possivel ver por exemplo se esse processo esta escrevendo em arquivos de texto, editando arquivos ou fazendo conexões de forma bem simples, mesmo que seja por exemplo conexões UDP, dificeis  de identificar de outras formas.
+### Os itens abaixo mostram oque o processo analisado esta manipulando, é possivel ver por exemplo se esse processo esta escrevendo em arquivos de texto, editando registros ou fazendo conexões, mesmo que seja por exemplo conexões UDP, dificeis  de identificar de outras formas.
 
 6: Mostrar atividades de registro manipulados pelo processo
 
@@ -32,6 +32,7 @@ https://learn.microsoft.com/pt-br/sysinternals/downloads/procmon
 8: Mostrar atividade de conexões manipuladas pelo processo
 
 9: Mostrar atividades de outros processos executados pelo processo 
+
 
 
 
@@ -44,7 +45,14 @@ Para simplificar ainda mais deixei apenas o filtro de (8 Conexões)
 ![Screenshot 2025-01-14 at 11 28 24](https://github.com/user-attachments/assets/4f09447f-93dd-42fa-bd58-81f129afaf4b)
 
 
-Podemos ver que o binario gera conexões apenas na porta de destino 1514, com destino ao sensor.
+Podemos ver que o binario gera conexões apenas na porta de destino 1514, com destino ao ip 192.168.80.240.
 
-Manipulando os filtros é possivel entender oq qualquer binario (malicioso ou não) esta fazendo, recomendo praticar o uso da ferramenta para melhor entendimento.
+Manipulando os filtros é possivel entender oque qualquer binario (malicioso ou não) esta fazendo, recomendo praticar o uso da ferramenta para melhor entendimento.
+
+Dica, na aba Options, desative a resolução de name para facilitar a analise caso for analisar conexões
+
+
+![Screenshot 2025-01-14 at 11 33 52](https://github.com/user-attachments/assets/d46e0161-9d94-44ad-8a58-4cf45fe9cfca)
+
+
 
