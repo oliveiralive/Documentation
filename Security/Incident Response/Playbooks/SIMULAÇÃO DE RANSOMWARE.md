@@ -25,36 +25,45 @@ Insight 1: Atividade Suspeita Descoberta
    
 Perguntas para o Analista L1:
 1. Quais ações iniciais você deve tomar ao receber o Alerta?
-R1. Revise os detalhes do alerta do SIEM: o Observe o IP de origem, o IP de destino e a descrição do alerta. o Verifique se o IP externo (Ex: 45.77.89.120) é reconhecido ou sinalizado em bancos de dados de inteligência de ameaças.
+   
+   R1. Revise os detalhes do alerta do SIEM: o Observe o IP de origem, o IP de destino e a descrição do alerta. o Verifique se o IP externo (Ex: 45.77.89.120) é reconhecido ou sinalizado em bancos de dados de inteligência de ameaças.
       
-2. Como você valida se essa atividade é maliciosa?
+3. Como você valida se essa atividade é maliciosa?
+   
    R2. Ao Consultar logs do sistema de origem (192.168.1.24), Confirmar a presença de atividade de criptografia de arquivo e identificar processos associados, verificar notas de resgate ou arquivos executáveis ​​suspeitos (invoice_0321.exe).
    
-3. Quando você deve escalar isso para L2?
+5. Quando você deve escalar isso para L2?
+   
    R3. A atividade de criptografia é confirmada.
        O IP externo é encontrado em relatórios de inteligência de ameaças.
        A nota de resgate está presente.
 
 Perguntas para o Analista L2:
 1. Como você confirma qual o tipo de ransonware impactou a maquina?
+
    R. Submeta um arquivo criptografado em plataformas como ID Ransonware (https://id-ransomware.malwarehunterteam.com/index.php?lang=en_US) ou No more ransom (https://www.nomoreransom.org/crypto-sheriff.php) para descobrir o tipo do Ransonware, tambem vale submeter o arquivo criptografado no binwalk (https://github.com/ReFirmLabs/binwalk) para mais detalhes, caso tenha acesso executavel do ransonware, execute-o em uma sandbox e procure os IPs que ele se comunica (AnyRun)
    
 3. Quais registros ou ferramentas adicionais você examinaria para entender o escopo?
+
    R. Revise logs de firewall e Proxy buscando conexões externas de maquinas da rede com esses IPs suspeitos.
       Com os IOCs em maos, procure evidencias deles em outras maquinas.
 
 Perguntas para o analista L3:
 1. Quais técnicas forenses avançadas você pode aplicar para analisar o ransomware?
+
    R. Caso tenha a amostra do ransonware, faça uma analise estatica com o IDA Pro, execute o ransonware em um ambiente de laboratorio do Vigilant e analise o Threat Hunting da execução, tambem vale analiza-lo em execução com o (Process monitor da microsoft, procure os IPs que ele gera conexões) caso o hash do binario ja seja conhecido no Virustotal, analise as informações disponiveis, caso o virustotal nao possuir o hash malicioso em sua base, evite submeter o binario, alguns grupos de ransonwares podem monitorar a submsão de seus binarios destruindo suas infraestruturas ou mudando o comportamento, dificultando a analise.
    
 3. Como você identificaria o vetor de ataque e evitaria mais comprometimento?
+
    R. é nescessario procurar de onde veio o binario malicioso, se veio de um email, ou se o servidor foi acessado e teve o binario distribuido na rede, via AD, por exemplo, apos recuperar o ambiente é importante melhorar as auditorias e processos de detecção e resposta.
    
 Perguntas para o gerente do SOC:
 1. Como você prioriza as próximas etapas, garantindo o mínimo de interrupção operacional?
+
    R. Inicie o checklist na pasta (Plan)
    
 3. Quais estratégias de comunicação você implementaria para as partes interessadas internas e externas?
+
    R. Notifique os executivos sobre o potencial impacto comercial.
       o Prepare uma estratégia de comunicação externa para clientes afetados ou órgãos reguladores, se necessário.
 
@@ -65,16 +74,20 @@ Insight 2: Disseminação da infecção
 
 Perguntas para o analista L1:
 1. Quais etapas você deve seguir para isolar os sistemas afetados?
+
    R. Desconecte imediatamente os sistemas afetados da rede para evitar uma propagação adicional.
    
-2. Como você documenta o incidente para análise posterior?
+3. Como você documenta o incidente para análise posterior?
+
    R. Colete informações orientadas no formulario (https://github.com/oliveiralive/Documentation/tree/main/Security/Incident%20Response/Coleta%20de%20Informações)
 
 Perguntas para o analista L2:
 1. Como você usa os dados de tráfego de rede para conter a ameaça?
-  R. Utilize ferramentas disponiveis para bloquear os IPs publicos identificados na analise do malware
+
+   R. Utilize ferramentas disponiveis para bloquear os IPs publicos identificados na analise do malware
  
 3. Quais técnicas de mitigação devem ser aplicadas para evitar o movimento lateral?
+
    R. O Vigilant pode bloquear os IPs dos servidores temporariamente ate que tenham sido recuperados, coloque em quarentena os segmentos de rede afetados para isolar os sistemas criptografados e evitar movimento lateral. Isso pode ser feito bloqueando a comunicação entre os segmentos afetados e não afetados usando firewalls ou listas de controle de acesso à rede (ACLs).
    R. Resete senhas de contas impactadas (ou todas), analise usuarios em maquinas e persistencias, desabilite compartilhamentos de arquivos, e reveja privilégios para uma politica de ZeroTrust.
 
