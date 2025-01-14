@@ -1,17 +1,17 @@
-Informações de contato com o time de Resposta a Incidente
-– Name
-– Função
-– Organizational unit (e.g., agency, department, division, team) and affiliation
-– Email
-– Numero de Telefone
-– Localn (e.g., mailing address, office room number)
+Informações de contato do cliente/empresa que reportou o problema
+– Name do analista:
+- Empresa:
+– Função:
+– Email: 
+– Numero de Telefone: 
+– Endereço (e.g., mailing address, office room number):
 
 
 Detalhes do Incidente 
 – Datas/horários de alteração de status (incluindo fuso horário): quando o incidente começou, quando o incidente foi descoberto/detectado, quando o incidente foi reportado, quando o incidente foi resolvido/terminado, etc. 
-– Localização física do incidente (por exemplo, cidade, estado) 
-– Status atual do incidente (por exemplo, ataque em andamento) 
-– Fonte/causa do incidente (se conhecida), incluindo nomes de host e endereços IP 
+– Localização física do incidente (por exemplo, cidade, estado, cloud) 
+– Status atual do incidente (por exemplo, ataque em andamento + data e horario) 
+– Fonte/causa do incidente (se conhecida), incluindo IOCs identificados
 – Descrição do incidente (por exemplo, como foi detectado, o que ocorreu) 
 – Descrição dos recursos afetados (por exemplo, redes, hosts, aplicativos, dados), incluindo nomes de host dos sistemas, endereços IP e função 
 – Se conhecida, categoria do incidente, vetores de ataque associados ao incidente e indicadores relacionados ao incidente (padrões de tráfego, chaves do registro, etc.) 
