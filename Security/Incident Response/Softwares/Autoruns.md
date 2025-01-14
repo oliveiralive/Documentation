@@ -1,4 +1,4 @@
-Introdução
+## Introdução
 
 Esse utilitário tem o conhecimento abrangente dos locais de inicialização automática para maquinas windows, incluindo chaves do registro, tarefas, serviços e muito mais.
 
