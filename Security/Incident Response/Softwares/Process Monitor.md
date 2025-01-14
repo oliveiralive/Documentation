@@ -11,7 +11,8 @@ https://learn.microsoft.com/pt-br/sysinternals/downloads/procmon
 
 ## Recursos basicos
 
-![Screenshot 2025-01-14 at 10 45 09](https://github.com/user-attachments/assets/ac03dbf4-41b9-4e85-8f0d-45e5d1238b1c)
+![ProcessMonitor](https://github.com/user-attachments/assets/b26dcf88-1a6e-4976-b19b-f5929e054bf8)
+
 
 1: Start e Stop na coleta de Logs
 
