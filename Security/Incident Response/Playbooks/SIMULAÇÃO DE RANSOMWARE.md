@@ -8,54 +8,55 @@ Vários arquivos parecem estar criptografados e uma nota de resgate é descobert
 
 O exercício começa com essa descoberta e prossegue pelo ciclo de vida de resposta a incidentes.
 
-Alerta de segurança 
-• ID do alerta: 3029
+Alertas de segurança
+• ID do alerta: 3029 e 3088
 • Gravidade: alta
 • IP de origem: 192.168.1.24
 • IP de destino: 45.77.89.120
-• Descrição: Grande transferência de dados de saída detectada eegistros de atividade de endpoint (EDR)
+• Descrição: Grande transferência de dados de saída detectados, arquivos com extenção suspeita criados no servidor
 
-<img width="718" alt="image" src="https://github.com/user-attachments/assets/d5aa1a70-e4d5-48c8-aa1e-885524b46e94" />
+
 
 ## Fase 1: Detecção e Triagem Iniciais 
 
 Insight 1: Atividade Suspeita Descoberta
-1. O Alerta relata tráfego de saída incomum para um IP não publico.
+1. O Alerta relata tráfego de saída incomum para um IP suspeito.
 2. Os logs de segurança revelam um download de arquivo suspeito seguido por criptografia rápida de arquivo.
    
 Perguntas para o Analista L1:
 1. Quais ações iniciais você deve tomar ao receber o Alerta?
    
-   R1. Revise os detalhes do alerta do SIEM: o Observe o IP de origem, o IP de destino e a descrição do alerta. o Verifique se o IP externo (Ex: 45.77.89.120) é reconhecido ou sinalizado em bancos de dados de inteligência de ameaças.
+   R1. Revise os detalhes do alerta: IP de origem, o IP de destino e a descrição do alerta. o Verifique se o IP relatado no log (Ex: 45.77.89.120) é reconhecido ou sinalizado em bancos de dados de inteligência de ameaças, exemplos (https://www.abuseipdb.com), (https://www.criminalip.io), (https://www.virustotal.com/)
       
 3. Como você valida se essa atividade é maliciosa?
    
-   R2. Ao Consultar logs do sistema de origem (192.168.1.24), Confirmar a presença de atividade de criptografia de arquivo e identificar processos associados, verificar notas de resgate ou arquivos executáveis ​​suspeitos (invoice_0321.exe).
+   R2. Ao Consultar logs do sistema de origem (192.168.1.24), Confirmar a presença de atividade de criptografia de arquivo e identificar processos associados, verificar notas de resgate ou arquivos executáveis ​​suspeitos (ex: invoice_0321.exe).
    
 5. Quando você deve escalar isso para L2?
    
    R3. A atividade de criptografia é confirmada.
        O IP externo é encontrado em relatórios de inteligência de ameaças.
        A nota de resgate está presente.
+       Binario reportado pelo alerta presente na maquina (Não submeta o binario em bases como virustotal ou Metadefender ainda)
 
 Perguntas para o Analista L2:
 1. Como você confirma qual o tipo de ransonware impactou a maquina?
 
-   R. Submeta um arquivo criptografado em plataformas como ID Ransonware (https://id-ransomware.malwarehunterteam.com/index.php?lang=en_US) ou No more ransom (https://www.nomoreransom.org/crypto-sheriff.php) para descobrir o tipo do Ransonware, tambem vale submeter o arquivo criptografado no binwalk (https://github.com/ReFirmLabs/binwalk) para mais detalhes, caso tenha acesso executavel do ransonware, execute-o em uma sandbox e procure os IPs que ele se comunica (AnyRun)
-   
-3. Quais registros ou ferramentas adicionais você examinaria para entender o escopo?
+   R. Submeta um arquivo criptografado em plataformas como ID Ransonware (https://id-ransomware.malwarehunterteam.com/index.php?lang=en_US) ou No more ransom (https://www.nomoreransom.org/crypto-sheriff.php) para descobrir o tipo do Ransonware, tambem vale submeter o arquivo criptografado no binwalk (https://github.com/ReFirmLabs/binwalk) para mais detalhes.
 
-   R. Revise logs de firewall e Proxy buscando conexões externas de maquinas da rede com esses IPs suspeitos.
-      Com os IOCs em maos, procure evidencias deles em outras maquinas.
+   
 
 Perguntas para o analista L3:
 1. Quais técnicas forenses avançadas você pode aplicar para analisar o ransomware?
 
-   R. Caso tenha a amostra do ransonware, faça uma analise estatica com o IDA Pro, execute o ransonware em um ambiente de laboratorio do Vigilant e analise o Threat Hunting da execução, tambem vale analiza-lo em execução com o (Process monitor da microsoft, procure os IPs que ele gera conexões) caso o hash do binario ja seja conhecido no Virustotal, analise as informações disponiveis, caso o virustotal nao possuir o hash malicioso em sua base, evite submeter o binario, alguns grupos de ransonwares podem monitorar a submsão de seus binarios destruindo suas infraestruturas ou mudando o comportamento, dificultando a analise.
-   
-3. Como você identificaria o vetor de ataque e evitaria mais comprometimento?
+   R. Caso tenha a amostra do ransonware, faça uma analise estatica com o IDA Pro, execute o ransonware em um ambiente de laboratorio, analise sua execução com as ferramentas "Process monitor e Process Explorer e Autoruns" (https://github.com/oliveiralive/Documentation/tree/main/Security/Incident%20Response/Softwares) caso o hash do binario ja seja conhecido no Virustotal, analise as informações disponiveis, caso o virustotal nao possuir o hash malicioso em sua base, evite submeter o binario, alguns grupos de ransonwares podem monitorar a submsão de seus binarios destruindo suas infraestruturas ou mudando o comportamento, dificultando a analise.
 
-   R. é nescessario procurar de onde veio o binario malicioso, se veio de um email, ou se o servidor foi acessado e teve o binario distribuido na rede, via AD, por exemplo, apos recuperar o ambiente é importante melhorar as auditorias e processos de detecção e resposta.
+3. Quais registros ou ferramentas adicionais você examinaria para entender o escopo?
+
+   R. Revise logs de firewall e Proxy buscando conexões externas de maquinas da rede com esses IPs suspeitos encontrados.
+      Com os IOCs em maos, procure conexões com origem ou destino para os IPs suspeitos encontrados, procure conexões que o ip de origem da maquina infectada efetuou, procure logins com sucesso do ip da maquina ou do usuario de origem.
+   
+
    
 Perguntas para o gerente do SOC:
 1. Como você prioriza as próximas etapas, garantindo o mínimo de interrupção operacional?
@@ -84,23 +85,18 @@ Perguntas para o analista L1:
 Perguntas para o analista L2:
 1. Como você usa os dados de tráfego de rede para conter a ameaça?
 
-   R. Utilize ferramentas disponiveis para bloquear os IPs publicos identificados na analise do malware
+   R. Utilize ferramentas disponiveis (Firewall/EDR) para bloquear os IPs publicos identificados na analise do malware
  
 3. Quais técnicas de mitigação devem ser aplicadas para evitar o movimento lateral?
 
-   R. O Vigilant pode bloquear os IPs dos servidores temporariamente ate que tenham sido recuperados, coloque em quarentena os segmentos de rede afetados para isolar os sistemas criptografados e evitar movimento lateral. Isso pode ser feito bloqueando a comunicação entre os segmentos afetados e não afetados usando firewalls ou listas de controle de acesso à rede (ACLs).
+   R. O EDR pode bloquear os IPs dos servidores temporariamente ate que tenham sido recuperados, coloque em quarentena os segmentos de rede afetados para isolar os sistemas criptografados e evitar movimento lateral. Isso pode ser feito bloqueando a comunicação entre os segmentos afetados usando regras de firewalls.
    R. Resete senhas de contas impactadas (ou todas), analise usuarios em maquinas e persistencias, desabilite compartilhamentos de arquivos, e reveja privilégios para uma politica de ZeroTrust.
 
    
-Perguntas para o analista L3:
-1. Como você analisa o malware para criar IoCs (indicadores de comprometimento) acionáveis?
-   R. ?
-2. Quais ferramentas avançadas podem ser usadas para avaliar o escopo completo dos ativos afetados?
-   R. ?
 
 Perguntas para o gerente do SOC:
 1. Como você garante que as ações de contenção estejam alinhadas com as prioridades do negócio?
-   R. Trabalhe com a equipe de TI para identificar sistemas críticos que exigem recuperação imediata.  
+   R. Trabalhe com a equipe de TI para para criar ou atualizar um documento de sistemas críticos que exigem recuperação imediata.  
    R. Avalie a necessidade de envolvimento de equipes de resposta a incidentes de terceiros ou de autoridades competentes.
    
 3. Quais recursos são necessários para recuperação imediata?
@@ -112,18 +108,16 @@ Perguntas para o gerente do SOC:
 ## Fase 3: Erradicação e Recuperação
 
 1. Quais etapas a SOC deve seguir para proteger os backups durante a analise?
-Verifique a integridade do backup: verifique imediatamente se os backups estão intactos e não afetados pelo ransomware. Verifique se os backups não foram criptografados comparando hashes e extensões de arquivo.
+   
+R.Verifique a integridade do backup: verifique imediatamente se os backups estão intactos e não afetados pelo ransomware. Verifique se os backups não foram criptografados comparando hashes e extensões de arquivo.
 Desconecte os sistemas de backup: certifique-se de que os sistemas de backup (tanto no local quanto na nuvem) estejam desconectados da rede ou isolados para impedir que o ransomware os tenha como alvo.
-Autenticação de backup: verifique a integridade da autenticação de backup e certifique-se de que as credenciais de backup estejam seguras.
+Autenticação de backup: verifique as autenticaçãos no sistema de backup e certifique-se de que as credenciais de backup estejam seguras.
 
-????
-2. Como garantir a restauração ou recuperação de backup?
-Verifique a chave de descriptografia: se a nota de resgate indicar a disponibilidade de uma chave de descriptografia, confirme sua autenticidade realizando testes em um pequeno conjunto de arquivos criptografados. No entanto, a descriptografia pelos invasores deve ser tratada com cautela devido ao risco de falha e corrupção de dados.
-????
+
 
 Restauração do backup:
 1 Priorizar a restauração de arquivos de um backup limpo conhecido antes que o ataque ocorresse.
-Executar uma restauração completa para sistemas críticos (RH, Finanças) para minimizar o tempo de inatividade.
+Executar uma restauração completa para sistemas críticos para minimizar o tempo de inatividade.
 
 
 
