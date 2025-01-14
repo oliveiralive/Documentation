@@ -12,7 +12,7 @@ Clique sobre a barra abaixo e escolha a opção de selecionar colunas
 
 ![Screenshot 2025-01-14 at 12 10 26](https://github.com/user-attachments/assets/e709dc81-e2a2-4387-a2c9-d0d98c2d98ef)
 
-Selecione as opções (Verified Signer: para saber se o binario é digitalmente assinado) e (Autostart Location: para saber a origem do binario)
+Selecione as opções (Verified Signer: para saber se o binario é digitalmente assinado) e (Autostart Location: para saber a persistencia do binario)
 
 
 ![Screenshot 2025-01-14 at 12 14 59](https://github.com/user-attachments/assets/ff4f1fc8-3146-4080-ac87-ac5cc85aa16b)
