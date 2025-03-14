@@ -1,3 +1,4 @@
+```
 # Comandos de analise basicos
 
 ### Caminhos com logs importantes
@@ -41,6 +42,7 @@ killall PROCESS_NAME
 ### FILE ANALISY
 Busca de todos os arquivos alterados em janela de tempo (com exceção de .log) e ordenados
 find /etc /var /usr/bin /usr/sbin /root /tmp /var/tmp -type f ! -name "*.log" ! -path "/var/ossec/*" ! -path "/var/lib/elasticsearch/*" -mtime -7 -exec stat --format='%y %n' {} \; | sort
+
 
 
 #Busca de scripts ordenados (Caso precise inclua a sentença -o -iname "*.py")
@@ -206,3 +208,4 @@ crontab -e
 
  crontab -u USERNAME -e
 
+``` 
